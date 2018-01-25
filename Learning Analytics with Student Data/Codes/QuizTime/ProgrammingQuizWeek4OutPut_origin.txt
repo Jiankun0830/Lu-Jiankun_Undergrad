@@ -1,0 +1,453 @@
+ID:3347237;Question:Wk.4.7.1;0:05:21
+ID:7783570;Question:Wk.4.7.1;The student did not submit.
+ID:7783574;Question:Wk.4.7.5;The student did not submit.
+ID:7783577;Question:Wk.4.7.6;0:09:53
+ID:7783478;Question:Wk.4.7.2;0:08:50
+ID:7783471;Question:Wk.4.7.1;0:05:19
+ID:3346837;Question:Wk.4.7.2;0:11:11
+ID:7783473;Question:Wk.4.7.2;0:00:06
+ID:7783472;Question:Wk.4.7.3;0:11:58
+ID:7783475;Question:Wk.4.7.3;0:12:42
+ID:3347754;Question:Wk.4.7.1;0:14:27
+ID:3347783;Question:Wk.4.7.6;The student did not submit.
+ID:3347756;Question:Wk.4.7.1;The student did not submit.
+ID:3347757;Question:Wk.4.7.1;The student did not submit.
+ID:3347750;Question:Wk.4.7.3;0:11:13
+ID:3347751;Question:Wk.4.7.2;0:14:24
+ID:3347752;Question:Wk.4.7.6;0:15:15
+ID:3347753;Question:Wk.4.7.6;0:12:47
+ID:3347758;Question:Wk.4.7.5;0:03:17
+ID:3347759;Question:Wk.4.7.4;0:07:56
+ID:7783706;Question:Wk.4.7.6;The student did not submit.
+ID:7783378;Question:Wk.4.7.3;0:05:08
+ID:7783379;Question:Wk.4.7.1;0:00:18
+ID:7783372;Question:Wk.4.7.3;0:04:37
+ID:7783370;Question:Wk.4.7.3;0:04:42
+ID:7783371;Question:Wk.4.7.3;0:00:34
+ID:7783377;Question:Wk.4.7.2;0:14:30
+ID:7783374;Question:Wk.4.7.1;0:01:18
+ID:3347789;Question:Wk.4.7.3;The student did not submit.
+ID:7783394;Question:Wk.4.7.6;The student did not submit.
+ID:7783396;Question:Wk.4.7.5;0:06:17
+ID:7783397;Question:Wk.4.7.4;0:12:19
+ID:7783390;Question:Wk.4.7.1;0:07:37
+ID:7783391;Question:Wk.4.7.4;0:06:00
+ID:7783392;Question:Wk.4.7.2;0:09:44
+ID:7783393;Question:Wk.4.7.6;0:14:57
+ID:7783398;Question:Wk.4.7.1;0:12:06
+ID:7783399;Question:Wk.4.7.4;0:04:55
+ID:3346654;Question:Wk.4.7.6;0:12:24
+ID:7783651;Question:Wk.4.7.4;0:01:22
+ID:7783719;Question:Wk.4.7.2;0:06:51
+ID:7783653;Question:Wk.4.7.4;0:10:22
+ID:7783652;Question:Wk.4.7.1;0:14:28
+ID:7783655;Question:Wk.4.7.1;0:11:59
+ID:7783654;Question:Wk.4.7.1;0:02:43
+ID:7783657;Question:Wk.4.7.2;0:13:15
+ID:7783656;Question:Wk.4.7.2;0:15:25
+ID:7783659;Question:Wk.4.7.3;0:11:00
+ID:7783711;Question:Wk.4.7.3;0:12:13
+ID:7783712;Question:Wk.4.7.2;The student did not submit.
+ID:7783713;Question:Wk.4.7.4;The student did not submit.
+ID:7783714;Question:Wk.4.7.5;0:09:57
+ID:7783716;Question:Wk.4.7.1;0:00:11
+ID:3346982;Question:Wk.4.7.2;0:00:25
+ID:7783470;Question:Wk.4.7.2;The student did not submit.
+ID:7783439;Question:Wk.4.7.1;The student did not submit.
+ID:7783438;Question:Wk.4.7.3;0:06:10
+ID:7783435;Question:Wk.4.7.3;0:07:38
+ID:7783434;Question:Wk.4.7.1;0:01:15
+ID:7783437;Question:Wk.4.7.1;0:01:36
+ID:7783436;Question:Wk.4.7.2;0:13:05
+ID:7783431;Question:Wk.4.7.1;0:10:47
+ID:7783430;Question:Wk.4.7.6;0:13:10
+ID:7783433;Question:Wk.4.7.2;0:05:15
+ID:7783432;Question:Wk.4.7.3;0:06:30
+ID:3347718;Question:Wk.4.7.2;0:02:35
+ID:3347719;Question:Wk.4.7.2;0:00:10
+ID:3347710;Question:Wk.4.7.2;0:07:41
+ID:3347711;Question:Wk.4.7.6;0:06:12
+ID:3347305;Question:Wk.4.7.2;0:04:28
+ID:3347714;Question:Wk.4.7.1;0:05:15
+ID:3347715;Question:Wk.4.7.2;0:14:31
+ID:3347716;Question:Wk.4.7.1;0:11:46
+ID:3347717;Question:Wk.4.7.4;The student did not submit.
+ID:7783509;Question:Wk.4.7.5;0:07:01
+ID:3347782;Question:Wk.4.7.1;The student did not submit.
+ID:3347781;Question:Wk.4.7.6;0:14:30
+ID:3347787;Question:Wk.4.7.6;0:14:22
+ID:3347786;Question:Wk.4.7.2;0:13:47
+ID:3347785;Question:Wk.4.7.3;0:15:49
+ID:3347784;Question:Wk.4.7.1;0:06:15
+ID:7783501;Question:Wk.4.7.2;0:04:03
+ID:7783500;Question:Wk.4.7.4;The student did not submit.
+ID:7783503;Question:Wk.4.7.3;The student did not submit.
+ID:3347788;Question:Wk.4.7.6;0:15:38
+ID:7783504;Question:Wk.4.7.1;The student did not submit.
+ID:7783507;Question:Wk.4.7.1;0:15:34
+ID:7783506;Question:Wk.4.7.4;The student did not submit.
+ID:7783668;Question:Wk.4.7.4;The student did not submit.
+ID:7783615;Question:Wk.4.7.4;0:00:16
+ID:7783614;Question:Wk.4.7.6;The student did not submit.
+ID:7783611;Question:Wk.4.7.1;0:09:56
+ID:7783610;Question:Wk.4.7.6;0:12:56
+ID:7783613;Question:Wk.4.7.2;0:12:14
+ID:7783612;Question:Wk.4.7.1;0:12:06
+ID:7783598;Question:Wk.4.7.3;0:04:55
+ID:7783596;Question:Wk.4.7.3;0:14:20
+ID:7783597;Question:Wk.4.7.5;0:02:09
+ID:7783594;Question:Wk.4.7.3;The student did not submit.
+ID:7783595;Question:Wk.4.7.1;0:10:37
+ID:7783592;Question:Wk.4.7.4;The student did not submit.
+ID:7783593;Question:Wk.4.7.5;0:16:18
+ID:7783590;Question:Wk.4.7.4;The student did not submit.
+ID:7783591;Question:Wk.4.7.3;0:13:18
+ID:7783760;Question:Wk.4.7.4;0:06:18
+ID:7783765;Question:Wk.4.7.6;0:15:04
+ID:7783764;Question:Wk.4.7.3;0:07:49
+ID:7783766;Question:Wk.4.7.1;0:00:23
+ID:3346614;Question:Wk.4.7.2;0:11:04
+ID:7783466;Question:Wk.4.7.3;0:01:05
+ID:7783464;Question:Wk.4.7.1;0:05:59
+ID:7783465;Question:Wk.4.7.6;0:13:44
+ID:7783549;Question:Wk.4.7.4;0:04:28
+ID:7783548;Question:Wk.4.7.3;0:08:02
+ID:7783460;Question:Wk.4.7.2;0:00:55
+ID:7783461;Question:Wk.4.7.6;0:11:05
+ID:7783544;Question:Wk.4.7.2;0:08:08
+ID:7783547;Question:Wk.4.7.3;0:09:43
+ID:7783541;Question:Wk.4.7.6;0:10:46
+ID:7783540;Question:Wk.4.7.1;0:00:42
+ID:7783543;Question:Wk.4.7.1;The student did not submit.
+ID:7783469;Question:Wk.4.7.5;The student did not submit.
+ID:3347778;Question:Wk.4.7.2;0:02:32
+ID:3347761;Question:Wk.4.7.3;0:09:20
+ID:3347760;Question:Wk.4.7.4;0:14:47
+ID:3347763;Question:Wk.4.7.3;0:15:17
+ID:3347762;Question:Wk.4.7.1;0:10:48
+ID:3347765;Question:Wk.4.7.1;0:12:01
+ID:3347764;Question:Wk.4.7.2;The student did not submit.
+ID:3347767;Question:Wk.4.7.5;0:15:11
+ID:3347766;Question:Wk.4.7.2;0:08:35
+ID:3347769;Question:Wk.4.7.4;The student did not submit.
+ID:3347768;Question:Wk.4.7.5;0:03:06
+ID:7783499;Question:Wk.4.7.2;0:10:48
+ID:7783498;Question:Wk.4.7.3;0:15:49
+ID:7783493;Question:Wk.4.7.3;0:00:49
+ID:7783492;Question:Wk.4.7.1;0:05:07
+ID:7783491;Question:Wk.4.7.3;The student did not submit.
+ID:7783490;Question:Wk.4.7.1;0:00:34
+ID:7783497;Question:Wk.4.7.4;0:11:30
+ID:7783496;Question:Wk.4.7.1;0:00:49
+ID:7783495;Question:Wk.4.7.3;0:00:22
+ID:7783494;Question:Wk.4.7.5;0:15:51
+ID:7783725;Question:Wk.4.7.6;0:11:42
+ID:7783724;Question:Wk.4.7.1;0:11:43
+ID:7783727;Question:Wk.4.7.3;0:03:53
+ID:7783726;Question:Wk.4.7.3;0:14:12
+ID:7783721;Question:Wk.4.7.2;The student did not submit.
+ID:7783720;Question:Wk.4.7.5;0:14:18
+ID:7783723;Question:Wk.4.7.3;0:00:22
+ID:7783722;Question:Wk.4.7.1;0:02:10
+ID:7783561;Question:Wk.4.7.5;0:02:03
+ID:7783689;Question:Wk.4.7.5;0:00:18
+ID:7783649;Question:Wk.4.7.1;0:12:53
+ID:7783647;Question:Wk.4.7.3;0:07:51
+ID:7783642;Question:Wk.4.7.2;The student did not submit.
+ID:7783643;Question:Wk.4.7.4;0:01:14
+ID:3346086;Question:Wk.4.7.3;0:14:31
+ID:7783428;Question:Wk.4.7.2;0:07:36
+ID:7783429;Question:Wk.4.7.5;0:11:30
+ID:7783422;Question:Wk.4.7.3;0:11:28
+ID:7783423;Question:Wk.4.7.4;0:10:54
+ID:7783420;Question:Wk.4.7.1;0:06:59
+ID:7783421;Question:Wk.4.7.5;0:07:19
+ID:7783426;Question:Wk.4.7.3;0:03:07
+ID:7783427;Question:Wk.4.7.4;0:01:28
+ID:7783424;Question:Wk.4.7.2;0:09:58
+ID:7783425;Question:Wk.4.7.1;The student did not submit.
+ID:3347712;Question:Wk.4.7.5;0:06:14
+ID:7783410;Question:Wk.4.7.3;0:08:02
+ID:3347311;Question:Wk.4.7.5;0:16:37
+ID:7783516;Question:Wk.4.7.3;0:11:11
+ID:7783517;Question:Wk.4.7.3;0:10:48
+ID:7783514;Question:Wk.4.7.1;0:07:02
+ID:7783515;Question:Wk.4.7.1;0:11:23
+ID:7783699;Question:Wk.4.7.5;0:14:40
+ID:7783698;Question:Wk.4.7.2;0:02:40
+ID:7783510;Question:Wk.4.7.6;The student did not submit.
+ID:7783511;Question:Wk.4.7.2;0:16:15
+ID:7783695;Question:Wk.4.7.1;0:05:50
+ID:7783694;Question:Wk.4.7.3;0:00:14
+ID:7783697;Question:Wk.4.7.6;The student did not submit.
+ID:7783696;Question:Wk.4.7.4;The student did not submit.
+ID:7783691;Question:Wk.4.7.6;0:15:08
+ID:7783690;Question:Wk.4.7.1;The student did not submit.
+ID:7783518;Question:Wk.4.7.1;The student did not submit.
+ID:7783519;Question:Wk.4.7.4;The student did not submit.
+ID:3347790;Question:Wk.4.7.3;The student did not submit.
+ID:3347792;Question:Wk.4.7.1;The student did not submit.
+ID:3347793;Question:Wk.4.7.3;0:15:17
+ID:3347794;Question:Wk.4.7.1;0:00:26
+ID:3347796;Question:Wk.4.7.1;0:16:09
+ID:3347797;Question:Wk.4.7.3;0:00:30
+ID:3347798;Question:Wk.4.7.5;0:03:14
+ID:3347799;Question:Wk.4.7.4;The student did not submit.
+ID:7783455;Question:Wk.4.7.5;0:14:29
+ID:7783454;Question:Wk.4.7.4;The student did not submit.
+ID:7783453;Question:Wk.4.7.2;The student did not submit.
+ID:7783452;Question:Wk.4.7.3;0:08:04
+ID:7783451;Question:Wk.4.7.2;0:15:35
+ID:7783450;Question:Wk.4.7.6;0:12:00
+ID:3347812;Question:Wk.4.7.2;0:13:22
+ID:3347811;Question:Wk.4.7.3;0:03:49
+ID:3347810;Question:Wk.4.7.6;The student did not submit.
+ID:7783602;Question:Wk.4.7.3;0:09:00
+ID:7783603;Question:Wk.4.7.3;0:07:03
+ID:7783601;Question:Wk.4.7.2;0:12:01
+ID:7783606;Question:Wk.4.7.4;The student did not submit.
+ID:7783607;Question:Wk.4.7.1;0:06:02
+ID:7783604;Question:Wk.4.7.2;The student did not submit.
+ID:7783605;Question:Wk.4.7.1;0:00:23
+ID:7783608;Question:Wk.4.7.6;0:14:00
+ID:3347724;Question:Wk.4.7.1;0:03:05
+ID:3347727;Question:Wk.4.7.4;The student did not submit.
+ID:3347726;Question:Wk.4.7.3;0:06:34
+ID:3347721;Question:Wk.4.7.6;0:11:06
+ID:3347720;Question:Wk.4.7.6;0:14:34
+ID:3347723;Question:Wk.4.7.3;0:05:18
+ID:3347722;Question:Wk.4.7.5;0:05:29
+ID:3347729;Question:Wk.4.7.3;The student did not submit.
+ID:3346633;Question:Wk.4.7.2;0:08:18
+ID:7783718;Question:Wk.4.7.1;The student did not submit.
+ID:7783650;Question:Wk.4.7.5;0:07:19
+ID:7783677;Question:Wk.4.7.4;0:11:13
+ID:7783676;Question:Wk.4.7.2;0:10:47
+ID:7783675;Question:Wk.4.7.2;0:11:35
+ID:7783674;Question:Wk.4.7.2;0:14:57
+ID:7783673;Question:Wk.4.7.2;0:07:23
+ID:7783672;Question:Wk.4.7.5;0:00:25
+ID:7783679;Question:Wk.4.7.5;0:12:47
+ID:7783678;Question:Wk.4.7.4;The student did not submit.
+ID:7783658;Question:Wk.4.7.4;0:02:21
+ID:3347424;Question:Wk.4.7.6;0:11:35
+ID:7783413;Question:Wk.4.7.3;0:06:40
+ID:7783412;Question:Wk.4.7.3;The student did not submit.
+ID:7783558;Question:Wk.4.7.3;The student did not submit.
+ID:7783559;Question:Wk.4.7.3;The student did not submit.
+ID:7783417;Question:Wk.4.7.3;0:13:52
+ID:7783416;Question:Wk.4.7.6;0:01:31
+ID:7783415;Question:Wk.4.7.2;0:05:24
+ID:7783414;Question:Wk.4.7.3;0:07:45
+ID:7783553;Question:Wk.4.7.1;The student did not submit.
+ID:7783419;Question:Wk.4.7.3;0:07:58
+ID:7783551;Question:Wk.4.7.2;0:06:23
+ID:7783557;Question:Wk.4.7.1;0:07:02
+ID:7783555;Question:Wk.4.7.3;0:11:45
+ID:7783581;Question:Wk.4.7.4;The student did not submit.
+ID:3347699;Question:Wk.4.7.1;The student did not submit.
+ID:3347698;Question:Wk.4.7.4;0:09:17
+ID:3347510;Question:Wk.4.7.5;0:07:09
+ID:7783629;Question:Wk.4.7.1;0:00:57
+ID:3347695;Question:Wk.4.7.3;0:08:28
+ID:3347697;Question:Wk.4.7.3;0:10:13
+ID:3347696;Question:Wk.4.7.3;0:13:38
+ID:3347691;Question:Wk.4.7.5;0:03:41
+ID:3347690;Question:Wk.4.7.4;0:11:18
+ID:3347693;Question:Wk.4.7.1;0:07:13
+ID:3347692;Question:Wk.4.7.6;The student did not submit.
+ID:3347459;Question:Wk.4.7.3;0:00:50
+ID:3347677;Question:Wk.4.7.6;0:15:42
+ID:3347676;Question:Wk.4.7.6;The student did not submit.
+ID:3347675;Question:Wk.4.7.1;0:04:10
+ID:3347674;Question:Wk.4.7.3;0:10:52
+ID:3347673;Question:Wk.4.7.3;0:05:40
+ID:3347672;Question:Wk.4.7.6;0:15:38
+ID:3347671;Question:Wk.4.7.3;0:02:21
+ID:3347779;Question:Wk.4.7.6;0:14:48
+ID:3347776;Question:Wk.4.7.2;0:11:40
+ID:3347777;Question:Wk.4.7.2;0:14:23
+ID:3347774;Question:Wk.4.7.3;0:08:11
+ID:3347772;Question:Wk.4.7.4;0:08:41
+ID:3347773;Question:Wk.4.7.2;0:08:19
+ID:3347770;Question:Wk.4.7.2;0:09:32
+ID:3347678;Question:Wk.4.7.1;0:04:00
+ID:7783589;Question:Wk.4.7.6;0:12:38
+ID:3347679;Question:Wk.4.7.3;0:14:34
+ID:7783588;Question:Wk.4.7.3;The student did not submit.
+ID:3347771;Question:Wk.4.7.4;0:09:12
+ID:7783529;Question:Wk.4.7.2;0:12:59
+ID:7783528;Question:Wk.4.7.1;0:00:47
+ID:7783527;Question:Wk.4.7.3;The student did not submit.
+ID:7783526;Question:Wk.4.7.5;0:15:28
+ID:7783525;Question:Wk.4.7.5;0:10:54
+ID:7783524;Question:Wk.4.7.2;0:11:04
+ID:7783523;Question:Wk.4.7.2;0:15:02
+ID:7783522;Question:Wk.4.7.2;0:14:25
+ID:7783520;Question:Wk.4.7.2;The student did not submit.
+ID:7783488;Question:Wk.4.7.3;0:01:18
+ID:7783489;Question:Wk.4.7.2;0:06:40
+ID:3347357;Question:Wk.4.7.2;The student did not submit.
+ID:7783480;Question:Wk.4.7.1;The student did not submit.
+ID:7783481;Question:Wk.4.7.3;0:00:06
+ID:7783482;Question:Wk.4.7.5;0:13:36
+ID:7783483;Question:Wk.4.7.1;0:01:21
+ID:7783484;Question:Wk.4.7.3;0:15:40
+ID:7783485;Question:Wk.4.7.1;0:00:11
+ID:7783486;Question:Wk.4.7.5;0:43:52
+ID:7783487;Question:Wk.4.7.3;0:10:24
+ID:7783733;Question:Wk.4.7.1;The student did not submit.
+ID:7783730;Question:Wk.4.7.6;The student did not submit.
+ID:7783731;Question:Wk.4.7.3;0:06:55
+ID:7783737;Question:Wk.4.7.4;The student did not submit.
+ID:7783738;Question:Wk.4.7.2;0:14:46
+ID:7783739;Question:Wk.4.7.5;0:01:17
+ID:7783638;Question:Wk.4.7.2;0:12:54
+ID:7783637;Question:Wk.4.7.1;0:04:50
+ID:3346074;Question:Wk.4.7.2;0:10:17
+ID:3346075;Question:Wk.4.7.2;0:00:48
+ID:7783418;Question:Wk.4.7.3;0:13:28
+ID:7783746;Question:Wk.4.7.3;0:05:51
+ID:7783745;Question:Wk.4.7.4;The student did not submit.
+ID:7783744;Question:Wk.4.7.3;0:01:46
+ID:7783740;Question:Wk.4.7.1;0:11:22
+ID:7783512;Question:Wk.4.7.6;0:14:37
+ID:7783749;Question:Wk.4.7.4;0:00:26
+ID:7783748;Question:Wk.4.7.2;The student did not submit.
+ID:7783550;Question:Wk.4.7.5;0:00:41
+ID:3347550;Question:Wk.4.7.2;The student did not submit.
+ID:7783692;Question:Wk.4.7.2;0:10:50
+ID:7783449;Question:Wk.4.7.6;0:11:54
+ID:7783563;Question:Wk.4.7.1;0:04:57
+ID:7783562;Question:Wk.4.7.5;0:05:03
+ID:7783688;Question:Wk.4.7.3;0:07:08
+ID:7783560;Question:Wk.4.7.2;0:00:42
+ID:7783567;Question:Wk.4.7.6;0:08:21
+ID:7783564;Question:Wk.4.7.5;The student did not submit.
+ID:7783513;Question:Wk.4.7.2;The student did not submit.
+ID:7783683;Question:Wk.4.7.1;The student did not submit.
+ID:7783680;Question:Wk.4.7.1;0:15:15
+ID:7783568;Question:Wk.4.7.5;The student did not submit.
+ID:7783686;Question:Wk.4.7.1;0:03:23
+ID:7783687;Question:Wk.4.7.1;0:00:09
+ID:7783684;Question:Wk.4.7.3;0:00:11
+ID:7783685;Question:Wk.4.7.3;The student did not submit.
+ID:7783459;Question:Wk.4.7.4;0:09:22
+ID:7783444;Question:Wk.4.7.4;0:11:43
+ID:7783445;Question:Wk.4.7.2;0:07:21
+ID:7783446;Question:Wk.4.7.2;0:14:25
+ID:7783447;Question:Wk.4.7.1;The student did not submit.
+ID:7783440;Question:Wk.4.7.5;0:04:29
+ID:7783441;Question:Wk.4.7.5;0:07:36
+ID:7783442;Question:Wk.4.7.4;The student did not submit.
+ID:7783443;Question:Wk.4.7.2;0:06:24
+ID:3347259;Question:Wk.4.7.3;0:07:29
+ID:7783456;Question:Wk.4.7.6;0:08:16
+ID:3347257;Question:Wk.4.7.2;0:00:57
+ID:3347256;Question:Wk.4.7.1;0:04:18
+ID:3347251;Question:Wk.4.7.2;0:10:55
+ID:3347747;Question:Wk.4.7.2;0:02:10
+ID:3347746;Question:Wk.4.7.4;0:15:21
+ID:3347745;Question:Wk.4.7.5;0:00:08
+ID:3347744;Question:Wk.4.7.1;0:12:42
+ID:3347743;Question:Wk.4.7.3;0:07:11
+ID:3347741;Question:Wk.4.7.5;0:15:44
+ID:3347740;Question:Wk.4.7.3;0:11:48
+ID:3346125;Question:Wk.4.7.3;The student did not submit.
+ID:3347749;Question:Wk.4.7.2;The student did not submit.
+ID:3347748;Question:Wk.4.7.1;0:07:39
+ID:3347808;Question:Wk.4.7.3;0:01:02
+ID:3347809;Question:Wk.4.7.2;0:15:49
+ID:3347804;Question:Wk.4.7.2;0:09:15
+ID:3347805;Question:Wk.4.7.6;0:10:18
+ID:3347806;Question:Wk.4.7.1;0:10:30
+ID:3347807;Question:Wk.4.7.1;0:12:16
+ID:3347800;Question:Wk.4.7.4;0:00:15
+ID:3347801;Question:Wk.4.7.1;0:00:27
+ID:3347802;Question:Wk.4.7.2;0:09:47
+ID:3347803;Question:Wk.4.7.1;0:08:11
+ID:7783369;Question:Wk.4.7.5;0:11:08
+ID:3347732;Question:Wk.4.7.1;0:05:00
+ID:3347730;Question:Wk.4.7.2;0:16:09
+ID:3347731;Question:Wk.4.7.2;0:14:36
+ID:3347736;Question:Wk.4.7.3;0:06:42
+ID:3347734;Question:Wk.4.7.3;0:04:17
+ID:3347735;Question:Wk.4.7.3;The student did not submit.
+ID:3347738;Question:Wk.4.7.1;0:15:02
+ID:3347739;Question:Wk.4.7.5;0:13:39
+ID:7783387;Question:Wk.4.7.2;The student did not submit.
+ID:7783386;Question:Wk.4.7.5;The student did not submit.
+ID:7783385;Question:Wk.4.7.2;0:04:09
+ID:7783384;Question:Wk.4.7.4;The student did not submit.
+ID:7783382;Question:Wk.4.7.3;0:06:35
+ID:7783381;Question:Wk.4.7.3;0:00:13
+ID:7783380;Question:Wk.4.7.5;The student did not submit.
+ID:7783389;Question:Wk.4.7.2;0:04:21
+ID:7783388;Question:Wk.4.7.2;0:14:37
+ID:7783664;Question:Wk.4.7.1;0:15:39
+ID:7783666;Question:Wk.4.7.5;0:07:45
+ID:7783708;Question:Wk.4.7.6;The student did not submit.
+ID:7783660;Question:Wk.4.7.4;The student did not submit.
+ID:7783663;Question:Wk.4.7.5;The student did not submit.
+ID:7783703;Question:Wk.4.7.3;0:11:15
+ID:7783702;Question:Wk.4.7.6;0:14:52
+ID:7783701;Question:Wk.4.7.1;0:12:09
+ID:7783700;Question:Wk.4.7.1;0:00:41
+ID:7783707;Question:Wk.4.7.1;The student did not submit.
+ID:7783669;Question:Wk.4.7.2;The student did not submit.
+ID:7783705;Question:Wk.4.7.2;0:15:31
+ID:7783400;Question:Wk.4.7.2;0:14:30
+ID:7783401;Question:Wk.4.7.1;0:07:34
+ID:7783402;Question:Wk.4.7.2;0:07:06
+ID:7783403;Question:Wk.4.7.6;0:07:39
+ID:7783404;Question:Wk.4.7.1;0:18:30
+ID:7783405;Question:Wk.4.7.4;The student did not submit.
+ID:7783406;Question:Wk.4.7.4;0:08:35
+ID:7783407;Question:Wk.4.7.2;0:09:46
+ID:7783408;Question:Wk.4.7.5;0:15:36
+ID:7783409;Question:Wk.4.7.2;0:05:29
+ID:3347688;Question:Wk.4.7.6;0:16:01
+ID:3347689;Question:Wk.4.7.6;0:00:48
+ID:3347682;Question:Wk.4.7.2;0:14:57
+ID:3347683;Question:Wk.4.7.3;0:11:05
+ID:3347680;Question:Wk.4.7.1;0:09:09
+ID:3347681;Question:Wk.4.7.1;0:04:57
+ID:3347686;Question:Wk.4.7.2;The student did not submit.
+ID:3347687;Question:Wk.4.7.2;0:09:45
+ID:3347684;Question:Wk.4.7.3;0:00:39
+ID:3347685;Question:Wk.4.7.1;0:00:47
+ID:3347709;Question:Wk.4.7.2;0:07:13
+ID:3347708;Question:Wk.4.7.1;0:12:22
+ID:3347701;Question:Wk.4.7.1;0:14:42
+ID:3347700;Question:Wk.4.7.3;0:05:57
+ID:3347707;Question:Wk.4.7.1;0:00:49
+ID:3347706;Question:Wk.4.7.3;0:00:24
+ID:3347705;Question:Wk.4.7.1;The student did not submit.
+ID:3347704;Question:Wk.4.7.2;0:12:41
+ID:7783534;Question:Wk.4.7.1;0:06:41
+ID:7783536;Question:Wk.4.7.3;0:10:00
+ID:7783537;Question:Wk.4.7.6;The student did not submit.
+ID:7783532;Question:Wk.4.7.4;The student did not submit.
+ID:7783533;Question:Wk.4.7.6;0:01:53
+ID:7783628;Question:Wk.4.7.3;0:00:07
+ID:7783580;Question:Wk.4.7.2;0:11:27
+ID:7783583;Question:Wk.4.7.3;0:12:22
+ID:7783585;Question:Wk.4.7.1;0:16:37
+ID:7783635;Question:Wk.4.7.5;The student did not submit.
+ID:7783587;Question:Wk.4.7.6;The student did not submit.
+ID:7783586;Question:Wk.4.7.1;0:21:46
+ID:7783620;Question:Wk.4.7.4;The student did not submit.
+ID:7783621;Question:Wk.4.7.2;0:02:05
+ID:7783622;Question:Wk.4.7.3;0:13:02
+ID:7783623;Question:Wk.4.7.2;The student did not submit.
+ID:7783625;Question:Wk.4.7.1;0:07:05
+ID:7783626;Question:Wk.4.7.2;0:15:17
+ID:7783627;Question:Wk.4.7.2;0:05:25
+ID:7783756;Question:Wk.4.7.1;0:06:02
+ID:7783757;Question:Wk.4.7.2;0:15:54
+ID:7783750;Question:Wk.4.7.5;0:11:42
+ID:7783751;Question:Wk.4.7.1;0:01:33
+ID:7783752;Question:Wk.4.7.2;0:07:38
+ID:7783542;Question:Wk.4.7.6;0:09:56
+ID:7783759;Question:Wk.4.7.3;0:00:28
+ID:3347401;Question:Wk.4.7.3;0:06:35
