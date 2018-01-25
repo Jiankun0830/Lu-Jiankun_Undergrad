@@ -1,0 +1,7 @@
+http://www.statmethods.net/advstats/cart.html
+
+http://trevorstephens.com/kaggle-titanic-tutorial/r-part-3-decision-trees/ 
+
+https://www.r-bloggers.com/joining-data-frames-in-r/
+
+Chapter 17.3 of "R in Action" by Robert I. Kabacoff (available from the SUTD Library)
