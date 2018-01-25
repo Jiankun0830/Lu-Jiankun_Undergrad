@@ -1,0 +1,488 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Weiqi online</title>
+  <link rel="stylesheet" href="WeiqiOnline_19.css" type="text/css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+
+
+<div id="leftPane">
+  <p id="menu" class="controls" style="width: 900px;">
+    <input style="padding-left: 2em;" id="file" type="file"> <button onclick="loadFile();">Load file</button>
+  </p>
+  <h2>Game information</h2>
+  <p id="information"></p>
+  <p style="padding-left: 20px">
+    Black captures: <strong id="black_captures">0</strong><br>
+    White captures: <strong id="white_captures">0</strong>
+  </p>
+  <p class="controls" style="width: 500px;">
+    <a href="#" onclick="move(0); return false;"><i class="fa fa-fast-backward"></i></a>
+    <a href="#" onclick="move(-10); return false;"><i class="fa fa-backward"></i></a>
+    <a href="#" onclick="move(-1); return false;"><i class="fa fa-step-backward"></i></a>
+    <strong id="move">1</strong> / <strong id="moves">1</strong>
+    <a href="#" onclick="move(1); return false;"><i class="fa fa-step-forward"></i></a>
+    <a href="#" onclick="move(10); return false;"><i class="fa fa-forward"></i></a>
+    <a href="#" onclick="move(1000); return false;"><i class="fa fa-fast-forward"></i></a>
+  </p>
+
+
+  <div id="board"></div>
+</div><div id="rightPane">
+  <p id="console"></p>
+  <button onclick="sendMoves()">Send moves</button>
+  <button onclick="getSim()">Get simulation</button>
+  <div id="tree"></div>
+</div>
+
+<script type="text/javascript" src="jgoboard-latest.js"></script>
+<script type="text/javascript" src="large/board.js"></script>
+<script type="text/javascript">
+
+var updateInfo = function (node)
+{
+  $('#move').html(moveNum);
+  $('#black_captures').html(node.info.captures[JGO.BLACK]);
+  $('#white_captures').html(node.info.captures[JGO.WHITE]);
+};
+var jrecord = new JGO.Record(19);
+var jboard = jrecord.jboard;
+var jsetup = new JGO.Setup(jboard, JGO.BOARD.large);
+var notifier = jsetup.getNotifier();
+var player = JGO.BLACK; // next player
+var ko = false, lastMove = false; // ko coordinate and last move coordinate
+var moveNum = 0;
+var totalMoves = 0;
+var lastMarks;
+
+jsetup.create('board', function(canvas) {
+  canvas.addListener('click', function(coord, ev)
+  {
+    var play = jboard.playMove(coord, player, ko);
+
+    if(play.success)
+    {
+      makeMove(coord, play);
+      sendMove(coord);
+    }
+    else document.getElementById("console").innerHTML = 'Illegal move: ' + play.errorMsg;
+  });
+});
+</script>
+
+<script>
+function makeMove(coord, play)
+{
+    node = jrecord.createNode(true);
+    node.history.push(coord);
+    node.info.captures[player] += play.captures.length; // tally captures
+    node.setType(coord, player); // play stone
+    node.setType(play.captures, JGO.CLEAR); // clear opponent's stones
+
+    if (lastMarks) clearMarks();
+    if(lastMove)
+      node.setMark(lastMove, JGO.MARK.NONE); // clear previous mark
+    if(ko)
+      node.setMark(ko, JGO.MARK.NONE); // clear previous ko mark
+
+    node.setMark(coord, JGO.MARK.CIRCLE); // mark move
+    lastMove = coord;
+
+    if(play.ko)
+      node.setMark(play.ko, JGO.MARK.CIRCLE); // mark ko, too
+    ko = play.ko;
+
+    player = (player == JGO.BLACK) ? JGO.WHITE : JGO.BLACK;
+    moveNum++;
+    totalMoves++;
+    $('#moves').html(totalMoves);
+    updateInfo(node);
+}
+
+function loadSGF(sgf)
+{
+  jrecord = JGO.sgf.load(sgf, true);
+
+  if(typeof jrecord == 'string') {
+    alert('Error loading SGF: ' + jrecord);
+    return;
+  }
+
+  if(!(jrecord instanceof JGO.Record)) {
+    alert('Empty SGF or multiple games in one SGF not supported!');
+    return;
+  }
+
+  $('#moves').html(jrecord.normalize()-1); // longest sequence first
+  notifier.changeBoard(jrecord.getBoard());
+  moveNum = 0;
+}
+
+function loadFile()
+{
+  var files = document.getElementById("file").files;
+
+	if(!files || files.length == 0)
+		alert("File loading either not supported or no file selected!");
+
+	var reader = new FileReader();
+	reader.onload = function() { loadSGF(reader.result); };
+	reader.readAsText(files[0], "UTF-8");
+}
+
+function move(dir)
+{ // dir=0 has special meaning "beginning"
+  if(!jrecord) return; // disable movement until SGF loaded
+
+  if(dir == 0)
+  {
+    jrecord.first();
+    moveNum = 0;
+  }
+  while(dir < 0)
+  {
+    if(!jrecord.previous()) break;
+    moveNum--;
+    dir++;
+  }
+  while(dir > 0)
+  {
+    if(!jrecord.next()) break;
+    moveNum++;
+    dir--;
+  }
+
+  updateInfo(jrecord.getCurrentNode());
+}
+
+function sendMoves()
+{
+  document.getElementById("console").innerHTML = JSON.stringify(jrecord.getCurrentNode().history);
+}
+</script>
+
+<script>
+function sendMove(coord)
+{
+    var msg = {message: JSON.stringify(coord)};
+
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify(msg),
+      contentType: 'application/json',
+      url: '/',
+      success: function(input)
+      {
+          document.getElementById("console").innerHTML = "Received coordinates: ";
+
+          var move = JSON.parse(input);
+          // var moves = reply[0];
+          // var treeData = reply[1];
+
+          var i = move.i;
+          var j = move.j;
+
+          document.getElementById("console").innerHTML += "(" + i.toString() + ", " + j.toString() + ") ";
+
+
+          var coord = new JGO.Coordinate(i, j);
+          var play = jboard.playMove(coord, player, ko);
+
+          if(play.success) makeMove(coord, play);
+          else document.getElementById("console").innerHTML = 'Illegal move: ' + play.errorMsg;
+
+          /*
+          document.getElementById("console").innerHTML = "Best move: " + Math.round(moves[0].pProb * 1000)/10 + "%\n";
+
+          lastMarks = moves.slice(1);
+
+          for (k = 0; k < lastMarks.length; k++)
+          {
+              var coord = new JGO.Coordinate(lastMarks[k].x, lastMarks[k].y);
+              jboard.setMark(coord, JGO.COORDINATES[k]);
+              document.getElementById("console").innerHTML += JGO.COORDINATES[k] + ": " + Math.round(lastMarks[k].pProb * 1000)/10 + "%\n";
+          }
+          */
+          // setupTree(treeData);
+
+      }
+    });
+
+}
+
+function getSim()
+{
+    var msg = {message: "Hello!"};
+
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify(msg),
+      contentType: 'application/json',
+      url: '/',
+      success: function(input)
+      {
+          var moveList = JSON.parse(input);
+
+          moveList.forEach( function (move)
+              {
+                  var x = move.i;
+                  var y = move.j;
+
+                  // document.getElementById("console").innerHTML += x.toString() + ", " + y.toString() + "\n";
+
+                  if (x != -1)
+                  {
+                      var coord = new JGO.Coordinate(x, y);
+                      var play = jboard.playMove(coord, player, ko);
+
+                      if(play.success) makeMove(coord, play);
+                      else document.getElementById("console").innerHTML = 'Illegal move: ' + play.errorMsg;
+                  }
+                  else document.getElementById("console").innerHTML = "Pass!";
+
+              });
+
+      }
+    });
+}
+</script>
+
+<script>
+function clearMarks()
+{
+  for (k = 0; k < lastMarks.length; k++)
+  {
+    var coord = new JGO.Coordinate(lastMarks[k].x, lastMarks[k].y);
+    jboard.setMark(coord, JGO.MARK.NONE);
+  }
+}
+</script>
+
+<script>
+var margin = {top: 25, right: 20, bottom: 20, left: 20},
+        width = 850 - margin.right - margin.left,
+        height = 800 - margin.top - margin.bottom;
+
+
+
+ var i = 0,
+     duration = 300,// animation duration
+     root;// stores the tree structure in json format
+
+ var tree = d3.layout.tree().size([width, height]).separation(function(a,b){return (a.parent == b.parent ? 1 : 1)});
+
+ var edge_weight = d3.scale.linear().domain([0, 100]).range([0, 100]);
+
+ var diagonal = d3.svg.diagonal().projection(function(d) { return [d.x, d.y]; });
+
+ // adding the svg to the html structure
+ var svg = d3.select("div#tree").append("svg")
+        .attr("width", width + margin.right + margin.left)
+        .attr("height", height + margin.top + margin.bottom)
+        .style("background-color", "lightgray")
+        .append("g")
+        .attr("transform", "translate(" + 0 + "," + margin.top + ")");
+
+
+function setupTree(treeData)
+{
+    root = treeData;
+    root.x0 = 0;
+    root.y0 = 0;
+
+    root.children.forEach(collapse);
+    update(root);
+}
+
+//d3.select(self.frameElement).style("height", "800px");
+
+function update(source)
+{
+    var cTurn = (player == JGO.BLACK) ? 1 : 0;
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+      links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 80; });
+
+  // Update the nodes
+  var node = svg.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.x0 + "," + source.y0 + ")"; })
+      .on("click", click);
+
+  nodeEnter.append("circle")
+      .attr("r", 1e-6)
+      .style("stroke", function (d) { return (d.depth + cTurn) % 2 == 0 ? "black" : "#fff"})
+      .style("fill", function(d) {
+          if (!d._children) return "lightgray";
+          else return (d.depth + cTurn) % 2 == 0 ? "black" : "#fff"; });
+
+  nodeEnter.append("text")
+      .attr("y", function(d) { return d.children || d._children ? -13 : 22; })
+      .attr("text-anchor", "middle")
+      .text(function(d) { return d.wins + " / " + d.visits; })
+      .style("font-weight", "bold")
+      .style("font-size", "12px")
+      .style("fill-opacity", 1e-6);
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+  nodeUpdate.select("circle")
+      .attr("r", 10)
+      .style("fill", function(d) {
+          if (!d._children) return "lightgray";
+          else return (d.depth + cTurn) % 2 == 0 ? "black" : "#fff"; });
+
+  nodeUpdate.select("text")
+      .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })
+      .remove();
+
+  nodeExit.select("circle")
+      .attr("r", 1e-6);
+
+  nodeExit.select("text")
+      .style("fill-opacity", 1e-6);
+
+  // Update the links
+  var link = svg.selectAll("path.link")
+      .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+      .attr("class", "link")
+      .attr("stroke-width", function(d){
+      	return 1;
+      })
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+      .attr("stroke", function(d){
+          return d.target.pvQ == 1 ? 'red' : 'steelblue';});
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", function(d){
+      /* calculating the top shift */
+      var source = {x: d.source.x, y: d.source.y};
+      //var source = {x: d.source.x - edge_weight(calculateLinkSourcePosition(d)), y: d.source.y};
+      var target = {x: d.target.x, y: d.target.y};
+      return diagonal({source: source, target: target});
+      })
+      .attr("stroke-width", function(d){
+          return edge_weight(Math.max(1, d.target.pProb * 20));
+      });
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+/**
+ * Calculates the source y-axis position of the link.
+ * @param {json structure} link
+ */
+function calculateLinkSourcePosition(link) {
+	targetID = link.target.id;
+	var childrenNumber = link.source.children.length;
+	var widthAbove = 0;
+	for (var i = 0; i < childrenNumber; i++)
+	{
+		if (link.source.children[i].id == targetID)
+		{
+			// we are done
+			widthAbove = widthAbove + link.source.children[i].size/2;
+			break;
+		}else {
+			// keep adding
+			widthAbove = widthAbove + link.source.children[i].size
+		}
+	}
+	return link.source.size/2 - widthAbove;
+}
+
+/*
+ * Toggle children on click.
+ * @param {node} d
+ */
+function click(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update(d);
+}
+
+/*
+ * Collapses the node d and all the children nodes of d
+ * @param {node} d
+*/
+function collapse(d) {
+  if (d.children) {
+    d._children = d.children;
+    d._children.forEach(collapse);
+    d.children = null;
+  }
+}
+
+/*
+ * Collapses the node in the tree
+*/
+function collapseAll() {
+	root.children.forEach(collapse);
+	update(root);
+}
+
+/*
+ * Expands the node d and all the children nodes of d
+ * @param {node} d
+*/
+function expand(d) {
+	if (d._children) {
+		d.children = d._children;
+		d._children = null;
+	}
+	if (d.children) {
+		d.children.forEach(expand);
+	}
+
+}
+
+</script>
+
+</body>
+</html>
