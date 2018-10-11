@@ -1,0 +1,327 @@
+```{r}
+rm(list = ls(all = TRUE))
+```
+
+```{r}
+require(e1071)
+require(readr)
+require(ggplot2)
+require(dplyr)
+require(tidyr)
+require(caret)
+require(corrplot)
+require(Hmisc)
+require(parallel)
+require(doParallel)
+require(ggthemes)
+require(randomForest)
+require(tree)
+require(ISLR)
+```
+
+```{r}
+setwd("/Users/lujiankun/Documents/Stanford_Courses/STAS202 DataMining/Class Project")
+dataset <- read.csv("training.csv")
+dataset$is_homepage = as.factor(dataset$is_homepage)
+dataset$relevance = as.factor(dataset$relevance)
+```
+
+
+```{r}
+describe(dataset)
+```
+
+```{r}
+describe(testset)
+```
+
+
+Transformation: f(x) = log(1+x)
+
+```{r}
+dataset1 <- dataset
+```
+
+```{r}
+dataset1$sig3 = log(1+dataset$sig3)
+dataset1$sig4 = log(1+dataset$sig4)
+dataset1$sig5 = log(1+dataset$sig5)
+dataset1$sig6 = log(1+dataset$sig6)
+```
+
+```{r}
+testset <- read.csv("test.csv")
+testset$is_homepage = as.factor(testset$is_homepage)
+testset$sig3 = log(1+testset$sig3)
+testset$sig4 = log(1+testset$sig4)
+testset$sig5 = log(1+testset$sig5)
+testset$sig6 = log(1+testset$sig6)
+```
+
+Preprocessing
+
+```{r}
+dataset1$query_seq <- 0
+dataset1$query_seq[1] <- 1
+for (obs in 2:dim(dataset1)[1]) {
+    if (dataset1$query_id[obs]==dataset1$query_id[obs-1] && dataset1$url_id[obs]==(dataset1$url_id[obs-1]+1)) {
+        dataset1$query_seq[obs] <- dataset1$query_seq[obs-1] + 1
+    }
+    else dataset1$query_seq[obs] <- 1
+}
+
+```
+
+```{r}
+testset$query_seq <- 0
+testset$query_seq[1] <- 1
+for (obs in 2:dim(testset)[1]) {
+    if (testset$query_id[obs]==testset$query_id[obs-1] && testset$url_id[obs]==(testset$url_id[obs-1]+1)) {
+        testset$query_seq[obs] <- testset$query_seq[obs-1] + 1
+    }
+    else testset$query_seq[obs] <- 1
+}
+
+```
+
+```{r}
+ggplot(data = dataset1,aes(x=query_seq,fill = relevance))+geom_histogram(alpha = 0.6,binwidth = 1)+labs(title = "Chart 5a: Query sequence Stacked Histogram Plot")
+ggplot(data = dataset1,aes(x=query_seq,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 5b: Query sequence Stacked Density Plot")
+```
+
+```{r}
+dataset2 = dataset1
+dataset2$url_id = NULL
+dataset2$query_id = NULL
+dataset2$sig3 = NULL
+```
+
+```{r}
+testset$url_id = NULL
+testset$query_id = NULL
+testset$sig3 = NULL
+```
+
+```{r}
+### separate dataset into training and testing sets
+n = dim(dataset2)[1]
+set.seed(0)
+#sample_Index <- createDataPartition(dataset$relevance,p=0.7,list=FALSE)
+sample_Index = sample(n,n*0.7)
+#print(sample_index)
+data_Train <- dataset2[sample_Index,]
+data_Test <- dataset2[-sample_Index,]
+```
+
+```{r}
+### preprocess factors for further modeling
+pp <- preProcess(data_Train,method=c("scale","center","pca"))
+data_Train <- predict(pp,data_Train)
+data_Test <- predict(pp,data_Test)
+```
+
+```{r}
+testset <- predict(pp,testset)
+```
+
+
+```{r}
+describe(data_Train)
+describe(data_Test)
+```
+
+
+General sets for different models.
+```{r}
+### define formula
+model_Formula <- relevance~PC1+PC2+PC3+PC4+PC5+PC6+PC7+PC8+is_homepage
+
+
+###set cross-validation parameters
+
+modelControl <- trainControl(method="repeatedcv",number=5,
+                             repeats=5,allowParallel=TRUE)
+```
+
+
+Model 1: logistic regression
+```{r}
+### model 1: logistic regression
+glm_Model <- train(model_Formula,
+                   data=data_Train,
+                   method="glm",
+                   trControl=modelControl)
+```
+
+```{r}
+data_Test1 <- data_Test[,-2]
+data_Train1 <- data_Train[,-2]
+data_Test1$glmPrediction <- predict(glm_Model,data_Test1)
+table(Truth = data_Test$relevance,predicted = data_Test1$glmPrediction)
+test_n = dim(data_Test1)[1]
+print(sprintf('Logistic regression test error rate = %f', 1 - sum( data_Test1$glmPrediction == data_Test$relevance ) / test_n ) )
+```
+
+```{r}
+data_Train1$glmPrediction <- predict(glm_Model,data_Train1)
+table(Truth = data_Train$relevance,predicted = data_Train1$glmPrediction)
+train_n = dim(data_Train1)[1]
+print(sprintf('Logistic regression train error rate = %f', 1 - sum( data_Train1$glmPrediction == data_Train$relevance ) / train_n ) )
+```
+
+
+Model 2: Random Forest
+```{r}
+rf_Model <- randomForest(model_Formula,
+                  data=data_Train,
+                  mtry=3,
+                  trControl=modelControl,
+                  ntrees=1000)
+```
+
+```{r}
+data_Test1$rfPrediction <- predict(rf_Model,data_Test1)
+table(data_Test$relevance,data_Test1$rfPrediction)
+print(sprintf('Random forest test error rate = %f', 1 - sum( data_Test1$rfPrediction == data_Test$relevance ) / test_n ) )
+```
+
+```{r}
+data_Train1$rfPrediction <- predict(rf_Model,data_Train1)
+table(data_Train$relevance,data_Train1$rfPrediction)
+print(sprintf('Random forest train error rate = %f', 1 - sum( data_Train1$rfPrediction == data_Train$relevance ) / train_n ) )
+```
+
+Model 3: KNN
+```{r}
+knn_Model <- train(model_Formula,
+                   data=data_Train,
+                   method="knn",
+                   trControl=modelControl)
+```
+
+
+```{r}
+knn_Model
+```
+
+
+```{r}
+fitControl <- trainControl(method="repeatedcv",
+                           number=10,repeats=3)
+tunedf <- data.frame(.k=seq(0,150,by=5))
+knnmodel <- train(x=data_Train[,-2],y=data_Train[, 2],
+                 method="knn",trControl=fitControl,
+                 tuneGrid=tunedf)
+plot(knnmodel)
+```
+
+```{r}
+print(knnmodel)
+knn_Model = knnmodel
+```
+
+
+```{r}
+knn_Model = knn3(model_Formula,data = data_Train, k = 105)
+```
+
+
+```{r}
+data_Test1$knnPrediction <- predict(knn_Model,data_Test,type = "class")
+table(data_Test$relevance,data_Test1$knnPrediction)
+print(sprintf('KNN test error rate = %f', 1 - sum( data_Test1$knnPrediction == data_Test$relevance ) / test_n ) )
+```
+
+```{r}
+data_Train1$knnPrediction <- predict(knn_Model,data_Train,type = "class")
+table(data_Train$relevance,data_Train1$knnPrediction)
+print(sprintf('KNN training error rate = %f', 1 - sum( data_Train1$knnPrediction == data_Train$relevance ) / train_n ) )
+```
+
+Model 4 Naive Bayes:
+```{r}
+nb_Model<-naiveBayes(model_Formula, data = data_Train) 
+```
+
+```{r}
+data_Test1$nbPrediction <- predict(nb_Model,data_Test1)
+table(data_Test$relevance,data_Test1$nbPrediction)
+print(sprintf('Naive Bayes test error rate = %f', 1 - sum( data_Test1$nbPrediction == data_Test$relevance ) / test_n ) )
+```
+
+```{r}
+data_Train1$nbPrediction <- predict(nb_Model,data_Train,type = "class")
+table(data_Train$relevance,data_Train1$nbPrediction)
+print(sprintf('Naive Bayes training error rate = %f', 1 - sum( data_Train1$nbPrediction == data_Train$relevance ) / train_n ) )
+```
+
+Model 5 Support Vector Machine:
+```{r}
+svm_Model_radial = svm(model_Formula,data = data_Train,kernel = "radial", cost = 0.01)
+```
+
+```{r}
+svm_Model_linear = svm(model_Formula,data = data_Train,kernel = "linear", cost = 1)
+```
+
+```{r}
+data_Test1$svmPrediction <- predict(svm_Model_linear,data_Test1)
+table(data_Test$relevance,data_Test1$svmPrediction)
+print(sprintf('Support Vector Machine test error rate = %f', 1 - sum( data_Test1$svmPrediction == data_Test$relevance ) / test_n ) )
+```
+
+```{r}
+tune.out = tune( svm, model_Formula, data=data_Train, kernel="radial",
+                 ranges=list( cost=10^seq(-2,0, by = 0.5) ) )
+```
+
+```{r}
+plot(tune.out)
+```
+
+
+```{r}
+svm_Model = svm(model_Formula,data = data_Train,kernel = "radial", cost = 3.162)
+```
+
+```{r}
+svm_Model = svm(model_Formula,data = data_Train,kernel = "radial", cost = 10)
+```
+
+```{r}
+svm_Model = tune.out$best.model
+data_Test1$svmPrediction <- predict(svm_Model,data_Test1)
+table(data_Test$relevance,data_Test1$svmPrediction)
+print(sprintf('Support Vector Machine test error rate = %f', 1 - sum( data_Test1$svmPrediction == data_Test$relevance ) / test_n ) )
+```
+
+```{r}
+svm_Model = tune.out$best.model
+data_Train1$svmPrediction <- predict(svm_Model,data_Train)
+table(data_Train$relevance,data_Train1$svmPrediction)
+print(sprintf('Support Vector Machine training error rate = %f', 1 - sum( data_Train1$svmPrediction == data_Train$relevance ) / train_n ) )
+```
+
+```{r}
+print(data_Test1)
+```
+
+```{r}
+testset$nbPrediction <- predict(nb_Model,testset)
+testset$rfPrediction <- predict(rf_Model,testset)
+testset$knnPrediction <- predict(knn_Model,testset,type = "class")
+testset$glmPrediction <- predict(glm_Model,testset)
+testset$svmPrediction <- predict(svm_Model,testset)
+```
+
+```{r}
+print(testset)
+```
+
+```{r}
+f <- as.numeric(testset$svmPrediction)-1
+#t <- testset$index
+write.table(f,file="final_project_prediction.txt",row.names=FALSE,col.names=FALSE);
+#write.table(t,file="test.txt",row.names=FALSE,col.names=FALSE);
+```
+

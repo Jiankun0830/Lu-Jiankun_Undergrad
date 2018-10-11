@@ -1,0 +1,100 @@
+```{r}
+rm(list = ls(all = TRUE))
+```
+
+```{r}
+require(ggplot2)
+require(corrplot)
+```
+
+```{r}
+setwd("/Users/lujiankun/Documents/Stanford_Courses/STAS202 DataMining/Class Project")
+dataset <- read.csv("training.csv")
+#dataset$is_homepage = as.factor(dataset$is_homepage)
+dataset$relevance = as.factor(dataset$relevance)
+```
+
+```{r}
+###find correlations between factors
+factor_Corr <- cor(dataset[,-c(1,2,3,4,13)])
+corplot <- corrplot(factor_Corr,method="number")
+```
+
+
+```{r}
+ggplot(data = dataset, aes(x=sig3, y = sig5))+geom_point(color = "blue")+labs(title = "Sig5 vs Sig3")
+```
+
+
+```{r}
+ggplot(data = dataset,aes(x=query_length,fill = relevance))+geom_histogram(alpha = 0.6, binwidth = 1)+labs(title = "Chart 1a: Query length Stacked Histogram Plot")
+
+hist(dataset$query_length,breaks=seq(1,20,by=1),
+    col="lightblue",
+    xlab="query_length", ylab="Frequency",
+    main="Chart 1a: Query Length Histogram")
+```
+
+```{r}
+ggplot(data = dataset,aes(x=is_homepage,fill = relevance))+geom_histogram(alpha = 0.6, binwidth = 1)+labs(title = "Chart 1b: Is_homapage Stacked Histogram Plot")
+```
+
+
+```{r}
+ggplot(data = dataset,aes(x=sig1,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 2a: Sig1 Stacked Density Plot")
+
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig2,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 2b: Sig2 Stacked Density Plot")
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig3))+geom_density(fill = "lightblue")+labs(title = "Chart 3a: Sig3 Density Plot")
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig4,fill = relevance))+geom_density(fill = "lightblue")+labs(title = "Chart 3b: Sig4 Density Plot")
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig5,fill = relevance))+geom_density(fill = "lightblue")+labs(title = "Chart 3c: Sig5 Density Plot")
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig6,fill = relevance))+geom_density(fill = "lightblue")+labs(title = "Chart 3d: Sig6 Density Plot")
+
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig7,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 2c: Sig7 Stacked Density Plot")
+
+```
+
+```{r}
+ggplot(data = dataset,aes(x=sig8,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 2d: Sig8 Stacked Density Plot")
+
+```
+
+```{r}
+dataset1 <- dataset
+```
+
+Transformation: f(x) = log(1+x)
+
+```{r}
+dataset1$sig3 = log(1+dataset$sig3)
+dataset1$sig4 = log(1+dataset$sig4)
+dataset1$sig5 = log(1+dataset$sig5)
+dataset1$sig6 = log(1+dataset$sig6)
+```
+
+```{r}
+ggplot(data = dataset1,aes(x=sig3,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 4a: log(1+sig3) Density Plot")
+ggplot(data = dataset1,aes(x=sig4,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 4b: log(1+sig4) Density Plot")
+ggplot(data = dataset1,aes(x=sig5,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 4c: log(1+sig5)Density Plot")
+ggplot(data = dataset1,aes(x=sig6,fill = relevance))+geom_density(alpha = 0.6)+labs(title = "Chart 4d: log(1+sig6) Density Plot")
+
+```
+
+
