@@ -1,0 +1,249 @@
+# file name: week12_1d_v5.py
+#:kivy 1.10.0
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+<Main>:
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'top'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, .1
+            canvas.before:
+                Rectangle:
+                    pos: 0, 450
+                    size: 300, 50
+                    source: 'header.jpg'
+            Label:
+            Label:
+                text: 'Planty'
+                bold: True
+                font_size: 18
+                color: 1, 1, 1, 1
+            Label:
+            Label:
+            Label:
+            Label:
+            Label:
+            Label:
+                id: time
+                text: root.time
+                font_size: 15
+                bold: True
+                color: 1, 1, 1, 1
+            Label:
+            BoxLayout:
+                orientation: 'vertical'
+                cols: 4
+                Label:
+                Label:
+                Label:
+                Button:
+                    id: quit
+                    background_normal: 'quit.jpg'
+                    text: 'X'
+                    bold: True
+                    color: 1, 1, 1, 1
+                    on_press: root.quit()
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+                Label:
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+        ScreenManager:
+            id: sm
+            size_hint: 1, .8
+            transition: FadeTransition()
+            Screen:
+                name: 'home'
+                BoxLayout:
+                    orientation: 'vertical'
+                    canvas.before:
+                        Rectangle:
+                            pos: 0, 250
+                            size: 250, 200
+                            source: 'soil.png'
+                    Label:
+                        id: title
+                        size_hint: 1, .5
+                        text: '[b]Planty[/b]'
+                        markup: True
+                        font_name: 'Forte'
+                        font_size: 56
+
+                    GridLayout:
+                        orientation: 'vertical'
+                        cols: 2
+                        size_hint: 1, 0.5
+                        Label:
+                            text: '    Temperature: '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                            halign: 'left'
+                        Label:
+                            id: temp_val
+                            text: root.temp
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            text: '    Moisture:          '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                            halign: 'left'
+                        Label:
+                            id: moi_val
+                            text: root.moi
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            text: '    Humidity:          '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                            halign: 'left'
+                        Label:
+                            id: hum_val
+                            text: root.hum
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+
+            Screen:
+                name: 'graph'
+                BoxLayout:
+                    orientation: 'vertical'
+                    canvas.before:
+                        Rectangle:
+                            pos: 0, 0
+                            size: 250, 300
+                            source: 'black5.png'
+                    Label:
+                        size_hint: 1, .2
+                        text: 'Moisture on Track'
+                        font_name: 'Arial'
+                        bold: True
+                        font_size: 22
+                        color: 0.2, 0.3, 0.8, 1
+                        halign: 'left'
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint: 1, .1
+                        Label:
+                            text: 'My plant:    '
+                            size_hint: .5, 1
+                            bold: True
+                            font_size: 18
+                            color: 0.5, 0.3, 0.1, 1
+                        TextInput:
+                            id: plant
+                            text: 'Kivia'
+                            size_hint: .4, 1
+                            font_size: 18
+                            multiline: False
+                        Label:
+                            size_hint: .1, 1
+                    Image:
+                        id: graph
+                        size_hint: 1, .9
+                        source: 'graph.png'
+            Screen:
+                name: 'info'
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        size_hint: 1, .1
+                        text: 'Information'
+                        font_name: 'Arial'
+                        bold: True
+                        font_size: 22
+                        color: 0.2, 0.3, 0.8, 1
+                        halign: 'left'
+                    GridLayout:
+                        cols: 2
+                        size_hint: 1, .7
+                        Label:
+                            text: '          ' + plant.text + '\'s Condition: '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            id: cond_val
+                            text: root.rank +"/5"
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            text: '    Last Watering: '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            id: lastW_val
+                            text: root.last_water
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            text: '    Next Watering: '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            id: nextW_val
+                            text: root.time_next
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            text: '    Frequency:         '
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+                        Label:
+                            id: freq_val
+                            text: root.freq
+                            color: 0.5, 0.3, 0.1, 1
+                            bold: True
+                            font_size: 18
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'bottom'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, .1
+            canvas.before:
+                Rectangle:
+                    pos: 0, 0
+                    size: 300, 50
+                    source: 'footer.jpg'
+            Button:
+                background_normal: 'button1.jpg'
+                on_release:
+                    root.ids.sm.current = 'home'
+            Button:
+                background_normal: 'button2.jpg'
+                on_release:
+                    root.ids.sm.current = 'graph'
+            Button:
+                background_normal: 'button3.jpg'
+                on_release:
+                    root.ids.sm.current = 'info'
